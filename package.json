@@ -1,0 +1,21 @@
+{
+  "name": "core-module-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "write.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/selim2066/nodeJs-core.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/selim2066/nodeJs-core/issues"
+  },
+  "homepage": "https://github.com/selim2066/nodeJs-core#readme"
+}
