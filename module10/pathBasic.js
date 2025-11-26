@@ -6,7 +6,7 @@ console.log("Directory: ", __dirname);
 
 console.log("\n" + "-".repeat(50) + "\n");
 
-const filePath = "/shafayat/documents/nextLevel.pdf";
+const filePath = "/selim/documents/nextLevel.pdf";
 
 console.log("analyzing Path :", filePath, "\n");
 console.log("Directory: ", path.dirname(filePath));
