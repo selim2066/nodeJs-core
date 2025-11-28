@@ -43,6 +43,32 @@ function initializeDirectories (){
     })
   }
   console.log("messyFiles : ")
+
+
+
+  if(!fs.existsSync(organizedDir)){
+    fs.mkdirSync(organizedDir, {recursive:true})
+  }
+
+  Object.keys(categories).forEach((category)=>{
+    const catPath=path.join(organizedDir, category)
+    if(!fs.existsSync(catPath)){
+      fs.mkdirSync(catPath)
+    }
+  })
+}
+
+function getCategory(filename){
+
+  const ext = path.extname(filename).toLowerCase()
+
+  for(const [category, extensions] of Object.entries(categories)){
+    if(extensions.includes(ext)){
+      return category
+    }
+  }
+  return "others"
+
 }
 
 initializeDirectories()
