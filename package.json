@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/selim2066/nodeJs-core/issues"
   },
-  "homepage": "https://github.com/selim2066/nodeJs-core#readme"
+  "homepage": "https://github.com/selim2066/nodeJs-core#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  }
 }
