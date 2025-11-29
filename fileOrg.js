@@ -1,9 +1,9 @@
 const fs = require("fs")
 const path = require("path")
 
-const sourceDir = path.join(__dirname,'output', 'messyFiles')
+const sourceDir = path.join(__dirname, 'output', 'messyFiles')
 
-const organizedDir = path.join(__dirname, "output","organized")
+const organizedDir = path.join(__dirname, "output", "organized")
 
 const categories = {
   images: [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".svg"],
@@ -33,42 +33,55 @@ const testFiles = [
   "backup.tar.gz",
   "random.xyz",
   "nodejs.zip",
-]; 
+];
 
-function initializeDirectories (){
-  if(!fs.existsSync(sourceDir)){
-    fs.mkdirSync(sourceDir,{recursive:true})
-    testFiles.forEach((file)=>{
-      fs.writeFileSync(path.join(sourceDir,file),`content of ${file}`)
+function initializeDirectories() {
+  if (!fs.existsSync(sourceDir)) {
+    fs.mkdirSync(sourceDir, { recursive: true })
+    testFiles.forEach((file) => {
+      fs.writeFileSync(path.join(sourceDir, file), `content of ${file}`)
     })
   }
   console.log("messyFiles : ")
 
 
 
-  if(!fs.existsSync(organizedDir)){
-    fs.mkdirSync(organizedDir, {recursive:true})
+  if (!fs.existsSync(organizedDir)) {
+    fs.mkdirSync(organizedDir, { recursive: true })
   }
 
-  Object.keys(categories).forEach((category)=>{
-    const catPath=path.join(organizedDir, category)
-    if(!fs.existsSync(catPath)){
+  Object.keys(categories).forEach((category) => {
+    const catPath = path.join(organizedDir, category)
+    if (!fs.existsSync(catPath)) {
       fs.mkdirSync(catPath)
     }
   })
 }
 
-function getCategory(filename){
+function getCategory(filename) {
 
   const ext = path.extname(filename).toLowerCase()
 
-  for(const [category, extensions] of Object.entries(categories)){
-    if(extensions.includes(ext)){
+  for (const [category, extensions] of Object.entries(categories)) {
+    if (extensions.includes(ext)) {
       return category
     }
   }
   return "others"
 
+}
+
+function organizerFiles() {
+  console.log("File organizer : ")
+  console.log("Source: ", sourceDir)
+  console.log("Destination: ", organizedDir)
+  console.log("\n" + "-".repeat(50) + "\n")
+
+  const files = fs.readdirSync(sourceDir)
+
+  if(files.length === 0){
+    console.log("no files to work on!!")
+  }
 }
 
 initializeDirectories()
